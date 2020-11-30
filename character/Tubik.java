@@ -1,28 +1,42 @@
-public class Tubik extends Korotishki implements Drawable{
-    public Tubik(){
+package character;
+
+import actions.Drawable;
+import actions.Portrait;
+import enumeration.Colors;
+
+public class Tubik extends Korotishki implements Drawable {
+    //if there isn't name of character, his name is Tubik
+    public Tubik() {
         this("Тюбик");
     }
+
+    /**
+     * constructor
+     *
+     * @param name
+     * @brief Creates Tubik with a certan name
+     */
     public Tubik(String name) {
         super(name);
     }
 
+    //Tubik create new portrait and draw some character
     @Override
     public Portrait draw() {
-        Portrait portraitGunki1=new Portrait();
-        portraitGunki1.nose=Colors.SKIN;
-        portraitGunki1.ears=Colors.SKIN;
-        portraitGunki1.lips=Colors.SKIN;
-        portraitGunki1.eyes=Colors.SKIN;
-        System.out.println(name+ " wanted to make Gunka look prettier, so he drew him a "+ portraitGunki1.nose.toString().toLowerCase()+ " nose, "+portraitGunki1.ears.toString().toLowerCase()+ " ears, "+portraitGunki1.lips.toString().toLowerCase()+ " lips, and "+portraitGunki1.eyes.toString().toLowerCase()+ " eyes.");
-        return portraitGunki1;
+        Portrait portraitGunki = new Portrait();
+        portraitGunki.nose = Colors.SKIN;
+        portraitGunki.ears = Colors.SKIN;
+        portraitGunki.lips = Colors.SKIN;
+        portraitGunki.eyes = Colors.SKIN;
+        System.out.println(name + " wanted to make Gunka look prettier, so he drew him a " + portraitGunki.nose.toString().toLowerCase() + " nose, " + portraitGunki.ears.toString().toLowerCase() + " ears, " + portraitGunki.lips.toString().toLowerCase() + " lips, and " + portraitGunki.eyes.toString().toLowerCase() + " eyes.");
+        return portraitGunki;
     }
 
+    //Tubik add something to the portrait
     @Override
-    public Portrait errays(Portrait portrait) {
-        portrait.nose=Colors.WHITE;
-        portrait.ears=Colors.WHITE;
-        portrait.lips=Colors.WHITE;
-        portrait.eyes=Colors.WHITE;
+    public Portrait drawDetail(Portrait portrait, Colors color) {
+        portrait.mustache = color;
+        System.out.println(name + " added a " + portrait.mustache.toString().toLowerCase() + " mustache.");
         return portrait;
     }
 }

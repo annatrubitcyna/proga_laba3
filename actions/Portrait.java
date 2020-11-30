@@ -1,6 +1,22 @@
+package actions;
+
+import enumeration.Colors;
+
 public class Portrait {
-    Colors nose=Colors.WHITE;
-    Colors ears=Colors.WHITE;
-    Colors lips=Colors.WHITE;
-    Colors eyes=Colors.WHITE;
+    //portrait can't do something, but it is used by characters
+    /**
+     * constructor
+     * @brief Creates new Portrait
+     */
+    public Portrait() {
+        super();
+    }
+    /**
+     * fields fields part of the face
+     */
+    public Colors nose = Colors.WHITE;
+    public Colors ears = Colors.WHITE;
+    public Colors lips = Colors.WHITE;
+    public Colors eyes = Colors.WHITE;
+    public Colors mustache=Colors.WHITE;
 }
