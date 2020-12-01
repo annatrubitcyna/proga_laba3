@@ -1,9 +1,11 @@
 package actions;
 
 public interface Dialogue {
-    void speak();
+    //Author can speak and comments the Story
 
-    void exclaim();
+    String speak();
 
-    void ask();
+    String exclaim();
+
+    String ask();
 }

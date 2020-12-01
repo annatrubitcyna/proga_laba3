@@ -7,5 +7,10 @@ public enum Colors {
     ORANGE,
     WHITE,
     SKIN,
-    PURPLE
+    PURPLE;
+
+    @Override
+    public String toString() {
+        return this.name().toLowerCase();
+    }
 }

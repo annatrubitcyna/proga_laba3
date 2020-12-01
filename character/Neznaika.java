@@ -26,12 +26,12 @@ public class Neznaika extends Korotishki implements Drawable, Dialogue {
     @Override
     public Portrait draw() {
         System.out.println(", and " + name + " began to draw it.");
-        Portrait portraitGunki = new Portrait();
+        Portrait portraitGunki = new Portrait("PortraitGunki");
         portraitGunki.nose = Colors.RED;
         portraitGunki.ears = Colors.GREEN;
         portraitGunki.lips = Colors.BLUE;
         portraitGunki.eyes = Colors.ORANGE;
-        System.out.println(name + " wanted to make Gunka look prettier, so he drew him a " + portraitGunki.nose.toString().toLowerCase() + " nose, " + portraitGunki.ears.toString().toLowerCase() + " ears, " + portraitGunki.lips.toString().toLowerCase() + " lips, and " + portraitGunki.eyes.toString().toLowerCase() + " eyes.");
+        System.out.println(name + " wanted to make Gunka look prettier, so he drew him a " + portraitGunki.nose.toString() + " nose, " + portraitGunki.ears.toString() + " ears, " + portraitGunki.lips.toString() + " lips, and " + portraitGunki.eyes.toString() + " eyes.");
         return portraitGunki;
     }
 
@@ -45,38 +45,42 @@ public class Neznaika extends Korotishki implements Drawable, Dialogue {
 
     //Neznaika can speak, exclaim and ask in the story different words at different moments in story
 
+
     @Override
-    public void speak() {
+    public String speak() {
+        System.out.print(name + " said:    ");
+        Time.getInstance().time += 1;
         if (Time.getInstance().time == 2) {
-            System.out.print("- Sit down Gunka, I'll draw you now.");
+            return ("- Sit down Gunka, I'll draw you now.");
         }
         if (Time.getInstance().time == 3) {
-            System.out.print("- Don't move, don't move. It doesn't look like it's going to work.");
+            return ("- Don't move, don't move. It doesn't look like it's going to work.");
         }
         if (Time.getInstance().time == 8) {
-            System.out.print("- Ok, ok, don't worry");
+            return ("- Ok, ok, don't worry");
         }
-        Time.getInstance().time += 1;
-        System.out.println("    -" + name + " said");
+        return null;
     }
 
     @Override
-    public void exclaim() {
+    public String exclaim() {
+        System.out.print(name + " exclaim:    ");
+        Time.getInstance().time += 1;
         if (Time.getInstance().time == 5) {
-            System.out.print("- It looks like it!");
+            return ("- It looks like it!");
         }
-        Time.getInstance().time += 1;
-        System.out.print("    -" + name + " exclaim");
+        return null;
     }
 
     @Override
-    public void ask() {
-
+    public String ask() {
+        return null;
     }
 
     /**
      * void annoy
      * reduces Gunka's mood
+     *
      * @param gunka
      */
     public void annoy(Gunka gunka) {

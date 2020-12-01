@@ -31,8 +31,8 @@ public abstract class Korotishki {
     /**
      * void live
      */
-    public void live() {
-        System.out.println("There is " + name + " in Sunny city.");
+    public String live() {
+        return ("There is " + name + " in Sunny city. ");
     }
 
     /**
@@ -48,6 +48,7 @@ public abstract class Korotishki {
     /**
      * void viewPortrait
      * if his portrait look like he his mood is good, but else it is very bed and any character laugh
+     *
      * @param portrait
      * @param person
      */
@@ -64,5 +65,15 @@ public abstract class Korotishki {
             }
         }
         System.out.println(name + " view portrait ");
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return this.getClass().equals(obj.getClass());
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }

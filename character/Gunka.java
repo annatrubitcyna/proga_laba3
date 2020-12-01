@@ -42,8 +42,9 @@ public class Gunka extends Korotishki implements Dialogue {
      * @param speed
      * @param place
      */
-    public void sitTo(Speed speed, String place) {
-        System.out.print(", " + speed.toString().toLowerCase() + " sit down" + " on a " + place);
+    public Boolean sitTo(Speed speed, String place) {
+        System.out.print(", " + speed.toString() + " sit down" + " on a " + place);
+        return true;
     }
 
     //if Gunka wanted to see his portrait quickly his patience is small
@@ -54,7 +55,7 @@ public class Gunka extends Korotishki implements Dialogue {
      * @param speed
      */
     public void wantedToSee(Speed speed) {
-        System.out.println("Gunka wanted to see his portrait " + speed.toString().toLowerCase());
+        System.out.println("Gunka wanted to see his portrait " + speed.toString());
         if (speed == Speed.QUICKLY) {
             patience = 0;
         }
@@ -75,7 +76,7 @@ public class Gunka extends Korotishki implements Dialogue {
      */
     public void sit(How how) {
         if (how == How.RESTLESSLY) {
-            System.out.print("Impatient, he couldn't sit " + How.CALMLY.toString().toLowerCase() + " in his chair");
+            System.out.print("Impatient, he couldn't sit " + How.CALMLY.toString() + " in his chair");
         }
     }
 
@@ -92,36 +93,40 @@ public class Gunka extends Korotishki implements Dialogue {
     //Gunka can speak, exclaim and ask in the story different words at different moments in story
 
     @Override
-    public void speak() {
-        if (Time.getInstance().time == 9) {
-            System.out.print("- Better let the Tubik draw me.");
-        }
+    public String speak() {
+        System.out.print(name + " said:    ");
         Time.getInstance().time += 1;
-        System.out.println("    -" + name + " said");
+        if (Time.getInstance().time == 9) {
+            return ("- Better let the Tubik draw me.");
+        }
+        return null;
     }
 
     @Override
-    public void exclaim() {
+    public String exclaim() {
+        Time.getInstance().time += 1;
+        System.out.print(name + " exclaim:    ");
         if (Time.getInstance().time == 6) {
-            System.out.print("- Show me what happened!");
+            return ("- Show me what happened!");
         }
         if (Time.getInstance().time == 7) {
-            System.out.print("- Am I like that? Now erase what you drew!");
+            return ("- Am I like that? Now erase what you drew!");
         }
         if (Time.getInstance().time == 10) {
-            System.out.print("- There is a good portrait!");
+            return ("- There is a good portrait!");
         }
-        Time.getInstance().time += 1;
-        System.out.println("    -" + name + " exclaim");
 
+        return null;
     }
 
     @Override
-    public void ask() {
-        if (Time.getInstance().time == 4) {
-            System.out.print("— Does it look like this now?");
-        }
+    public String ask() {
         Time.getInstance().time += 1;
-        System.out.println("    -" + name + " ask");
+        System.out.print(name + " ask:    ");
+        if (Time.getInstance().time == 4) {
+            return ("— Does it look like this now?");
+        }
+        return null;
     }
+
 }

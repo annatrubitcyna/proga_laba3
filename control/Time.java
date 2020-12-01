@@ -4,7 +4,7 @@ public class Time {
     /**
      * field time
      */
-    public int time=0;
+    public int time = 0;
     /**
      * field instance
      */
@@ -18,6 +18,7 @@ public class Time {
 
     /**
      * Singleton
+     *
      * @return instance
      */
     public static Time getInstance() {
@@ -25,5 +26,10 @@ public class Time {
             instance = new Time();
         }
         return instance;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.time;
     }
 }

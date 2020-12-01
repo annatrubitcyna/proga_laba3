@@ -28,7 +28,7 @@ public class Tubik extends Korotishki implements Drawable {
         portraitGunki.ears = Colors.SKIN;
         portraitGunki.lips = Colors.SKIN;
         portraitGunki.eyes = Colors.SKIN;
-        System.out.println(name + " wanted to make Gunka look prettier, so he drew him a " + portraitGunki.nose.toString().toLowerCase() + " nose, " + portraitGunki.ears.toString().toLowerCase() + " ears, " + portraitGunki.lips.toString().toLowerCase() + " lips, and " + portraitGunki.eyes.toString().toLowerCase() + " eyes.");
+        System.out.println(name + " wanted to make Gunka look prettier, so he drew him a " + portraitGunki.nose.toString() + " nose, " + portraitGunki.ears.toString() + " ears, " + portraitGunki.lips.toString() + " lips, and " + portraitGunki.eyes.toString() + " eyes.");
         return portraitGunki;
     }
 
